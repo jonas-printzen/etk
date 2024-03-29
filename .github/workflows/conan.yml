@@ -1,0 +1,29 @@
+name: Conan on self-hosted Linux
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  BUILD_TYPE: Release
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: [Linux,self-hosted]
+    strategy:
+      matrix:
+        architecture: [X64,ARM64]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Configure conan
+      run: conan install . --build=missing -s build_type=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: conan build . -s build_type=${{env.BUILD_TYPE}}
