@@ -2,6 +2,7 @@
 #define ETK_TYPES_HDR
 
 #include <stdint.h>
+
 #include <span>
 #include <string_view>
 
