@@ -1,4 +1,6 @@
 /build
+/dox
+/cov
 CMakeUserPresets.json
 /.local
 /.vscode
@@ -9,8 +11,6 @@ CMakeUserPresets.json
 bin/
 lib/
 /include/
-/dox/*/
-/cov/
 *.gc??
 __pycache__/
 *.gcov

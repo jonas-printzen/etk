@@ -15,3 +15,36 @@ _TBC_
 ## Validation
 
 Aiming at 100% line-coverage and 70% or better branch-coverage is a reasonable ambition, while not absolutely guaranteed. It is up to the user of this toolkit to validate towards their own requirements. Provided as is, with no guarantees about usability or safety. Use at your own risk!
+
+## Building
+
+This toolkit adopts Conan 2 for building. At this time we use cmake, since this is the primary and most matured solution.
+
+Provided you have conan installed, you can prepare for building using the following commands.
+
+``` bash
+$> conan profile detect
+...
+$> conan install . --build=missing [-s build_type=Debug]
+.... will take some time
+```
+
+The first command will setup a profile for building on the machine you are running on. The second command will fetch, and if needed build, all dependencies declared in the projects `conanfile.py`.
+
+Then, to actually build this project, run the following.
+
+``` bash
+$> conan build . [-s build_type=Debug]
+```
+
+This will build the project and you can find the result in `./build/[Debug|Release]/etk/`. 
+
+> **Note**!  Use `build_type=Debug` to get coverage!
+
+There is also a Doxyfile to generate documentation. Just run ...
+
+``` bash
+$> doxygen
+```
+
+... and view the documentation in a browser @ `file:///.../etk/dox/index.html`.

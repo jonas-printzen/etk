@@ -7,6 +7,10 @@
 
 namespace etk {
 
+/** @addtogroup CORE
+ * @{
+ */
+
 using chars_t = std::string_view;
 
 using hash32_t = uint32_t;
@@ -43,8 +47,6 @@ inline constexpr hash32_t H32( auto &&...args ) {
 inline constexpr hash64_t H64( auto &&...args ) {
   return XHASH<hash64_t>(std::forward<decltype(args)>(args)...);
 }
-
-
 
 using data_t = std::span<uint8_t, std::dynamic_extent>;
 using len_t = uint32_t;
@@ -114,6 +116,10 @@ public:
   const static constexpr hash_t TYPE=H;
 };
 
+
+/**
+ * @}
+ */
 
 } // namespace etk
 
