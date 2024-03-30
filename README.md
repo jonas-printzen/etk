@@ -37,9 +37,13 @@ Then, to actually build this project, run the following.
 $> conan build . [-s build_type=Debug]
 ```
 
-This will build the project and you can find the result in `./build/[Debug|Release]/etk/`. 
+This will build the project and you can find the result in ./build/[Debug|Release]/etk/. 
 
-> **Note**!  Use `build_type=Debug` to get coverage!
+I you wan't the coverage to be generated, you have to do both install and build using the optional Debug build_type. 
+
+View the coverage in a browser at file:///.../etk/cov/index.html.
+
+The unit-tests will run in either case.
 
 There is also a Doxyfile to generate documentation. Just run ...
 
@@ -47,4 +51,4 @@ There is also a Doxyfile to generate documentation. Just run ...
 $> doxygen
 ```
 
-... and view the documentation in a browser @ `file:///.../etk/dox/index.html`.
+... and view the documentation in a browser @ file:///.../etk/dox/index.html.
